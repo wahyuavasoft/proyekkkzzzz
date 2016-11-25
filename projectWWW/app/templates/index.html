@@ -1,0 +1,259 @@
+<html>
+  <head>
+    <title>{{ title }} - flask python</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+<style>
+body {background-color: #F9F9F9;font-family: Georgia, "Times New Roman", Times, serif;}hr{border: 0;height: 0;border-top: 1px solid rgba(0, 0, 0, 0.1);
+border-bottom: 1px solid rgba(255, 255, 255, 0.3);}
+label{font: italic 12px/20px Verdana,serif;}
+h4{font: bold italic 18px/20px Verdana,serif;color: #333333;}
+.box{
+width:75%;
+height:450px;
+border:1px solid #CCCCCC;
+float:right;
+background-color:#FFFFFF;
+  border-radius: 5px 5px 5px 5px;
+}
+.boxcari{
+width:48%;
+height:40px;
+//border:1px solid #CCCCCC;
+float:left;
+margin-top:72px;
+margin-left:120px;
+}
+.boxcaribox{
+width:20%;
+height:40px;
+//border:1px solid #CCCCCC;
+float:left;
+margin-top:70px;
+
+}
+.boxtabel{
+width:97%;
+height:300px;
+border:1px solid #CCCCCC;
+margin-left:13px;
+margin-top:13px;
+float:left;
+border-radius: 5px 5px 5px 5px;
+}
+
+.bs-example {
+	font-family: sans-serif;
+	position: relative;
+	margin: 100px;
+}
+.typeahead, .tt-query, .tt-hint {
+	border: 2px solid #CCCCCC;
+	border-radius: 8px;
+	font: italic 12px Verdana,serif;
+	height: 30px;
+	line-height: 30px;
+	outline: medium none;
+	padding: 8px 12px;
+	width: 396px;
+}
+.typeahead {
+	background-color: #FFFFFF;
+}
+.typeahead:focus {
+	border: 2px solid #222;
+}
+.tt-query {
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.tt-hint {
+	color: #999999;
+}
+.tt-menu {
+	background-color: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	width: 395px;
+}
+.tt-suggestion {
+	padding: 3px 20px;
+	font: italic 12px Verdana,serif;
+}
+.tt-suggestion:hover {
+	cursor: pointer;
+	background-color: #222;
+	border-radius: 8px;
+	color: #FFFFFF;
+}
+.tt-suggestion p {
+	margin: 0;
+}
+
+		table{
+  border-collapse:collapse;
+}
+
+</style>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+  // Defining the local dataset
+  var nama = ['WAHYU','WAWAN','WENI', 'HENRA','HUNRI','HARI', 'IRFAN', 'EVI', 'TANTRI'];
+
+  // Constructing the suggestion engine
+  var nama = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  local: nama
+  });
+
+  // Initializing the typeahead
+  $('.typeahead').typeahead({
+  hint: true,
+  highlight: true, /* Enable substring highlighting */
+  minLength: 1 /* Specify minimum characters required for showing result */
+  },
+  {
+  name: 'nama',
+  source: nama
+  });
+  });
+
+</script>
+  
+  </head>
+  <body>
+      <h1></h1>
+	  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"\>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				
+<a class="navbar-brand" href="#">
+<label style="color:#FFFFFF;font-size:20px">
+
+{{ user.nickname }}
+</label></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                <button class="btn btn-default" type="button"  style="font: italic 12px Verdana,serif; background-color:#222; color:#ffffff">
+					profile
+					</button>
+                    &nbsp;
+                    </li>
+                    <li>
+				<button class="btn btn-default" type="button"  style="font: italic 12px Verdana,serif; background-color:#222; color:#ffffff">
+					contact
+					</button>
+                    &nbsp;
+                    </li>
+					<li>
+                <div class="dropdown">
+						<button class="btn btn-default" type="button" data-toggle="dropdown"  style="font: italic 12px Verdana,serif; background-color:#222; color:#ffffff">project&nbsp;<span class="caret"></span></button>
+							<ul class="dropdown-menu" >
+								<li class="dropdown-header"><i>Data Karyawan</i></li>
+									<li><a href="#">nama</a></li>
+									<li><a href="#">alamat</a></li>
+									<li><a href="#">telephone</a></li>
+									<li class="divider"></li>
+								<li class="dropdown-header"><i>Data Barang</i></li>
+									<li><a href="#">harga</a></li>
+									<li><a href="#">jumlah</a></li>
+									<li><a href="#">satuan</a></li>
+									<li><a href="#">berat</a></li>
+									<li class="divider"></li>
+								<li><a href="#">About Us</a></li>
+							</ul>
+               </div>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!---------------------------------------------------------------------------------------------------------------------->
+    <div class="container"></br></br></br></br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+					<a href="#" class="list-group-item"><label style="color:#666666">Profile</label></a>
+                    <a href="#" class="list-group-item"><label style="color:#666666">Contact</label></a>
+                    <a href="#" class="list-group-item"><label style="color:#666666">Project</label></a>
+                </div>
+            </div>
+			
+<div class="box">
+<div class="boxcari">
+<input type="text" class="typeahead tt-query" autocomplete="off" spellcheck="false" >
+</div>
+<div class="boxcaribox">
+<button type="button" class="btn btn-default" style="font: italic 12px Verdana,serif; background-color:#222; color:#ffffff"><span class="glyphicon glyphicon-search"></span> Search</button>
+</div>
+<div class="boxtabel">
+ <table class="table table-hover">
+    <thead style="font: italic 12px Verdana,serif" >
+      <tr>
+        <th><center>voucher_code</center></th>
+        <th><center>status</center></th>
+        <th><center>err_code</center></th>
+        <th><center>message</th>
+      </tr>
+    </thead>
+    <tbody style="font: italic 12px Verdana,serif">
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+           <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+           <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+           <td>john@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+       </div>
+   </div>
+<!---------------------------------------------------------------------------------------------------------------------->
+  <div class="container">
+  
+
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+
+
+    <div class="container">
+        <hr>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label style="color:#333333">Copyright@2016</label>
+                </div>
+            </div>
+        </footer>
+    </div>
+  </body>
+  
+  
+</html>
